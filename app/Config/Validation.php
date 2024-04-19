@@ -62,5 +62,9 @@ class Validation extends BaseConfig
             //     // 'strongPassword' => 'Password not strong'
             // ]
         ],
+        'cpassword' => [
+            'label' => 'Confirm Password',
+            'rules' => 'matches[password]|required'
+        ]
     ];
 }

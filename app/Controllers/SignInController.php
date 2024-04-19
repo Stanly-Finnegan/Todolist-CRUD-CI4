@@ -15,14 +15,17 @@ class SignInController extends BaseController
 
   public function signIn()
   {
+    // $post_data = json_decode(file_get_contents('php://input'), true);
 
+    $post_data = $this->request->getPost();
 
-
-    $post_data = json_decode(file_get_contents('php://input'), true);
-
+    if ($post_data === null && $post_data === '') {
+      return $this->fail('Missing parameter');
+    }
 
     $email = $post_data['email'];
     $password = $post_data['password'];
+
 
     $userModel = new UsersModel();
 

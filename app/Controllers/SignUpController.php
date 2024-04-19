@@ -17,7 +17,9 @@ class SignUpController extends BaseController
 
     $validation = \Config\Services::validation();
 
-    $post_data = json_decode(file_get_contents('php://input'), true);
+    // $post_data = json_decode(file_get_contents('php://input'), true);
+
+    $post_data = $this->request->getPost();
 
     $validation->setRuleGroup('strongPasswordValidation');
 
