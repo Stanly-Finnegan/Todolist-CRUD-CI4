@@ -26,11 +26,9 @@ class SignInController extends BaseController
     $email = $post_data['email'];
     $password = $post_data['password'];
 
-
     $userModel = new UsersModel();
 
     $user = $userModel->where('email', $email)->first();
-
 
     if (!($user && password_verify($password,  $user->password))) {
       // return $this->respond(['success' => true, 'message' => 'Login successful']);
@@ -56,9 +54,6 @@ class SignInController extends BaseController
       // echo (json_encode($response));
       return $this->respond(['token' => $data['token'], 'success' => true, 'message' => 'Auth successfull']);
     }
-
-
-
     // echo (json_encode($response));
   }
 }
